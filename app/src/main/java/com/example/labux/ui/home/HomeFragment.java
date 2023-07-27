@@ -15,17 +15,24 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.labux.LoginActivity;
 import com.example.labux.MainActivity;
 import com.example.labux.R;
 import com.example.labux.databinding.FragmentHomeBinding;
 import com.smarteist.autoimageslider.SliderView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements RecyclerViewAdapter.ItemListener {
 
     private FragmentHomeBinding binding;
+    RecyclerView recyclerView;
+    ArrayList arrayList;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -34,9 +41,8 @@ public class HomeFragment extends Fragment {
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
-        final TextView textView = binding.textHome;
-        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        TextView usernameTextView = binding.username;
+        usernameTextView.setText(LoginActivity.usernameGlobal);
 
 
 
@@ -54,30 +60,46 @@ public class HomeFragment extends Fragment {
         sliderView.setAutoCycle(true);
         sliderView.startAutoCycle();
 
-        RadioGroup radioGroup = binding.radioGroup;
 
-        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
-        {
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                // checkedId is the RadioButton selected
-                Log.d(TAG, "onCheckedChanged: " + checkedId + "     " + R.id.radio_regular);
-                if (checkedId == R.id.radio_regular){
-                    binding.boothTypeLabel.setText("Sue");
+//        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        recyclerView = binding.recyclerView;
+        arrayList = new ArrayList();
 
-                }else if (checkedId == R.id.radio_silver){
-                    Toast.makeText(getContext(), "Silver", Toast.LENGTH_SHORT);
-                    binding.boothTypeLabel.setText("Sue 1");
+        arrayList.add(new DataModel("Title Event 1", 5000000, "02 August 2023", R.drawable.jalihara_logo, "10:00 PM", "Jakarta, Indonesia", "Deskripsi Event"));
+        arrayList.add(new DataModel("Title Event 1", 5000000, "02 August 2023", R.drawable.jalihara_logo, "10:00 PM", "Jakarta, Indonesia", "Deskripsi Event"));
+        arrayList.add(new DataModel("Title Event 1", 5000000, "02 August 2023", R.drawable.jalihara_logo, "10:00 PM", "Jakarta, Indonesia", "Deskripsi Event"));
+        arrayList.add(new DataModel("Title Event 1", 5000000, "02 August 2023", R.drawable.jalihara_logo, "10:00 PM", "Jakarta, Indonesia", "Deskripsi Event"));
+        arrayList.add(new DataModel("Title Event 1", 5000000, "02 August 2023", R.drawable.jalihara_logo, "10:00 PM", "Jakarta, Indonesia", "Deskripsi Event"));
+        arrayList.add(new DataModel("Title Event 1", 5000000, "02 August 2023", R.drawable.jalihara_logo, "10:00 PM", "Jakarta, Indonesia", "Deskripsi Event"));
 
-                }else if (checkedId == R.id.radio_gold){
-                    Toast.makeText(getContext(), "Gold", Toast.LENGTH_SHORT);
-
-                }
+        RecyclerViewAdapter adapterGrid = new RecyclerViewAdapter(getActivity(), arrayList, this);
+        recyclerView.setAdapter(adapterGrid);
 
 
-            }
-        });
+        /**
+         AutoFitGridLayoutManager that auto fits the cells by the column width defined.
+         **/
+
+        /*AutoFitGridLayoutManager layoutManager = new AutoFitGridLayoutManager(this, 500);
+        recyclerView.setLayoutManager(layoutManager);*/
+
+
+        /**
+         Simple GridLayoutManager that spans two columns
+         **/
+        GridLayoutManager manager = new GridLayoutManager(getActivity(), 2, GridLayoutManager.VERTICAL, false);
+        recyclerView.setLayoutManager(manager);
+
+
 
         return root;
+    }
+    @Override
+    public void onItemClick(DataModel item) {
+        Toast.makeText(requireContext(), item.title + " is clicked", Toast.LENGTH_SHORT).show();
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("selected", item);
+        Navigation.findNavController(getView()).navigate(R.id.action_nav_home_to_ticket_form, bundle);
     }
 
     public void onSplitTypeChanged(RadioGroup radioGroup, int id) {
@@ -109,8 +131,5 @@ public class HomeFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
-
-
-
 
 }
