@@ -2,10 +2,13 @@ package com.example.labux.ui.home;
 
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
+import androidx.navigation.Navigation;
 
 import com.example.labux.R;
 import com.smarteist.autoimageslider.SliderViewAdapter;
@@ -14,10 +17,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SliderAdapter extends SliderViewAdapter<SliderAdapter.SliderAdapterViewHolder> {
-    private final List<SliderData> mSliderItems;
+    private final List<DataModel> mSliderItems;
+    private View rootView;
 
-    public SliderAdapter(Context context, ArrayList<SliderData> sliderDataArrayList) {
+    public SliderAdapter(View rootView, ArrayList<DataModel> sliderDataArrayList) {
         this.mSliderItems = sliderDataArrayList;
+        this.rootView = rootView;
     }
 
     @Override
@@ -28,7 +33,16 @@ public class SliderAdapter extends SliderViewAdapter<SliderAdapter.SliderAdapter
 
     @Override
     public void onBindViewHolder(SliderAdapterViewHolder viewHolder, final int position) {
-        viewHolder.imageViewBackground.setImageResource(mSliderItems.get(position).getImgUrl());
+        DataModel item = mSliderItems.get(position);
+        viewHolder.imageViewBackground.setImageResource(item.getDrawable());
+        viewHolder.imageViewBackground.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("selected", item);
+                Navigation.findNavController(rootView).navigate(R.id.action_nav_home_to_ticket_form, bundle);
+            }
+        });
     }
 
     @Override
@@ -46,4 +60,7 @@ public class SliderAdapter extends SliderViewAdapter<SliderAdapter.SliderAdapter
             this.itemView = itemView;
         }
     }
+
+
+
 }

@@ -44,53 +44,29 @@ public class HomeFragment extends Fragment implements RecyclerViewAdapter.ItemLi
         TextView usernameTextView = binding.username;
         usernameTextView.setText(LoginActivity.usernameGlobal);
 
-
-
         SliderView sliderView = binding.imageSlider;
+        recyclerView = binding.recyclerView;
+        arrayList = new ArrayList();
 
-        ArrayList<SliderData> sliderDataArrayList = new ArrayList<>();
-        sliderDataArrayList.add(new SliderData(R.drawable.jalihara_logo));
-        sliderDataArrayList.add(new SliderData(R.drawable.image_example_ticketform));
-        sliderDataArrayList.add(new SliderData(R.drawable.jalihara_logo));
+        arrayList.add(new DataModel("Title Event 1", 5000000, "02 August 2023", R.drawable.jalihara_logo, "10:00 PM", "Jakarta, Indonesia", "Deskripsi Event"));
+        arrayList.add(new DataModel("Title Event 2", 5000000, "02 August 2023", R.drawable.jalihara_logo, "10:00 PM", "Jakarta, Indonesia", "Deskripsi Event"));
+        arrayList.add(new DataModel("Title Event 3", 5000000, "02 August 2023", R.drawable.jalihara_logo, "10:00 PM", "Jakarta, Indonesia", "Deskripsi Event"));
+        arrayList.add(new DataModel("Title Event 4", 5000000, "02 August 2023", R.drawable.jalihara_logo, "10:00 PM", "Jakarta, Indonesia", "Deskripsi Event"));
+        arrayList.add(new DataModel("Title Event 5", 5000000, "02 August 2023", R.drawable.jalihara_logo, "10:00 PM", "Jakarta, Indonesia", "Deskripsi Event"));
+        arrayList.add(new DataModel("Title Event 6", 5000000, "02 August 2023", R.drawable.jalihara_logo, "10:00 PM", "Jakarta, Indonesia", "Deskripsi Event"));
 
-        SliderAdapter adapter = new SliderAdapter(requireContext(), sliderDataArrayList);
+        RecyclerViewAdapter adapterGrid = new RecyclerViewAdapter(getActivity(), arrayList, this, root);
+        recyclerView.setAdapter(adapterGrid);
+
+        SliderAdapter adapter = new SliderAdapter(root, arrayList);
         sliderView.setAutoCycleDirection(SliderView.LAYOUT_DIRECTION_LTR);
         sliderView.setSliderAdapter(adapter);
         sliderView.setScrollTimeInSec(3);
         sliderView.setAutoCycle(true);
         sliderView.startAutoCycle();
 
-
-//        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        recyclerView = binding.recyclerView;
-        arrayList = new ArrayList();
-
-        arrayList.add(new DataModel("Title Event 1", 5000000, "02 August 2023", R.drawable.jalihara_logo, "10:00 PM", "Jakarta, Indonesia", "Deskripsi Event"));
-        arrayList.add(new DataModel("Title Event 1", 5000000, "02 August 2023", R.drawable.jalihara_logo, "10:00 PM", "Jakarta, Indonesia", "Deskripsi Event"));
-        arrayList.add(new DataModel("Title Event 1", 5000000, "02 August 2023", R.drawable.jalihara_logo, "10:00 PM", "Jakarta, Indonesia", "Deskripsi Event"));
-        arrayList.add(new DataModel("Title Event 1", 5000000, "02 August 2023", R.drawable.jalihara_logo, "10:00 PM", "Jakarta, Indonesia", "Deskripsi Event"));
-        arrayList.add(new DataModel("Title Event 1", 5000000, "02 August 2023", R.drawable.jalihara_logo, "10:00 PM", "Jakarta, Indonesia", "Deskripsi Event"));
-        arrayList.add(new DataModel("Title Event 1", 5000000, "02 August 2023", R.drawable.jalihara_logo, "10:00 PM", "Jakarta, Indonesia", "Deskripsi Event"));
-
-        RecyclerViewAdapter adapterGrid = new RecyclerViewAdapter(getActivity(), arrayList, this);
-        recyclerView.setAdapter(adapterGrid);
-
-
-        /**
-         AutoFitGridLayoutManager that auto fits the cells by the column width defined.
-         **/
-
-        /*AutoFitGridLayoutManager layoutManager = new AutoFitGridLayoutManager(this, 500);
-        recyclerView.setLayoutManager(layoutManager);*/
-
-
-        /**
-         Simple GridLayoutManager that spans two columns
-         **/
         GridLayoutManager manager = new GridLayoutManager(getActivity(), 2, GridLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(manager);
-
-
 
         return root;
     }

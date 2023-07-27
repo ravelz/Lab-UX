@@ -2,14 +2,17 @@ package com.example.labux.ui.home;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.labux.R;
@@ -21,11 +24,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private ArrayList<DataModel> mValues;
     private Context mContext;
     private ItemListener mListener;
+    private View rootView;
 
-    public RecyclerViewAdapter(Context context, ArrayList<DataModel> values, ItemListener itemListener) {
+    public RecyclerViewAdapter(Context context, ArrayList<DataModel> values, ItemListener itemListener, View rootView) {
         mValues = values;
         mContext = context;
         mListener = itemListener;
+        this.rootView = rootView;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -36,6 +41,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         public ImageView imageView;
         public RelativeLayout relativeLayout;
         private DataModel item;
+        public Button btnBuyTicket;
 
         public ViewHolder(View v) {
             super(v);
@@ -44,6 +50,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             priceTextView = v.findViewById(R.id.priceTextView);
             dateTextView = v.findViewById(R.id.dateTextView);
             imageView = v.findViewById(R.id.imageView);
+            btnBuyTicket = v.findViewById(R.id.buy_ticket);
         }
 
         public void setData(DataModel item) {
@@ -72,6 +79,17 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewAdapter.ViewHolder holder, int position) {
         holder.setData(mValues.get(position));
+        DataModel item = mValues.get(position);
+
+        Button buttonBuy = holder.btnBuyTicket;
+        buttonBuy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("selected", item);
+                Navigation.findNavController(rootView).navigate(R.id.action_nav_home_to_ticket_form, bundle);
+            }
+        });
     }
 
     @Override
