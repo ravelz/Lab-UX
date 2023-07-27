@@ -21,7 +21,7 @@
     <fragment
         android:id="@+id/ticket_form"
         android:name="com.example.labux.ui.slideshow.SlideshowFragment"
-        android:label="Manage Team"
+        android:label="Ticket Form"
         tools:layout="@layout/fragment_gallery" >
     </fragment>
 
