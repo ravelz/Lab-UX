@@ -100,17 +100,18 @@
                     />
 
                 <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/radio_group"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_below="@id/booth_typeLabel"
+
                     >
 
                     <RadioButton android:id="@+id/radio_regular"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Regular"
-                        android:onClick="onRadioButtonClicked"
                         android:textColor="#3955BF"
                         android:textStyle="bold"
                         />
@@ -119,7 +120,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Silver"
-                        android:onClick="onRadioButtonClicked"
                         android:textColor="#3955BF"
                         android:textStyle="bold"/>
 
@@ -127,7 +127,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Gold"
-                        android:onClick="onRadioButtonClicked"
                         android:textColor="#3955BF"
                         android:textStyle="bold"/>
                 </RadioGroup>
