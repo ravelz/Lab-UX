@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -37,6 +38,10 @@ public class DoubleSliderAdapter extends SliderViewAdapter<DoubleSliderAdapter.D
         DataModel item = mSliderItems.get(position);
         viewHolder.imageViewBackground.setImageResource(item.getDrawable());
         viewHolder.textViewTitle.setText(item.getTitle());
+        viewHolder.textViewPrice.setText(String.valueOf(item.getPrice()));
+        viewHolder.textViewDate.setText(item.getDate());
+        viewHolder.buttonBuyTicket.setText("Buy Ticket");
+
         viewHolder.imageViewBackground.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -48,6 +53,8 @@ public class DoubleSliderAdapter extends SliderViewAdapter<DoubleSliderAdapter.D
         DataModel item1 = mSliderItems1.get(position);
         viewHolder.imageViewBackground1.setImageResource(item.getDrawable());
         viewHolder.textViewTitle1.setText(item1.getTitle());
+        viewHolder.textViewPrice1.setText(String.valueOf(item1.getPrice()));
+        viewHolder.textViewDate1.setText(item1.getDate());
         viewHolder.imageViewBackground1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,7 +74,8 @@ public class DoubleSliderAdapter extends SliderViewAdapter<DoubleSliderAdapter.D
         View itemView;
         ImageView imageViewBackground;
         ImageView imageViewBackground1;
-        TextView textViewTitle, textViewTitle1;
+        TextView textViewTitle, textViewTitle1, textViewPrice, textViewPrice1, textViewDate, textViewDate1;
+        Button buttonBuyTicket,buttonBuyTicket1;
 
         public DoubleSliderAdapterViewHolder(View itemView) {
             super(itemView);
@@ -75,6 +83,15 @@ public class DoubleSliderAdapter extends SliderViewAdapter<DoubleSliderAdapter.D
             imageViewBackground1 = itemView.findViewById(R.id.imageView1);
             textViewTitle = itemView.findViewById(R.id.titleTextView);
             textViewTitle1 = itemView.findViewById(R.id.titleTextView1);
+
+            textViewPrice = itemView.findViewById(R.id.priceTextView);
+            textViewPrice1 = itemView.findViewById(R.id.priceTextView1);
+
+            textViewDate = itemView.findViewById(R.id.dateTextView);
+            textViewDate1 = itemView.findViewById(R.id.dateTextView1);
+
+            buttonBuyTicket = itemView.findViewById(R.id.buy_ticket);
+            buttonBuyTicket1 = itemView.findViewById(R.id.buy_ticket1);
             this.itemView = itemView;
         }
     }

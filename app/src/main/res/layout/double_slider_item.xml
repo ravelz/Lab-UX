@@ -4,6 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
+    android:background="#FFFFFF"
+
     >
 
     <androidx.cardview.widget.CardView
@@ -11,7 +13,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-
         card_view:cardCornerRadius="0dp"
         card_view:cardElevation="10dp"
         card_view:cardMaxElevation="10dp"
@@ -25,6 +26,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:background="@drawable/border"
+
             android:padding="10dp"
             >
 
@@ -64,8 +66,6 @@
                 android:text="Buy Ticket"
                 android:layout_below="@id/dateTextView"
                 />
-
-
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>

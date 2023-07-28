@@ -22,10 +22,10 @@ import com.smarteist.autoimageslider.SliderView;
 
 import java.util.ArrayList;
 
-public class HomeFragment extends Fragment implements RecyclerViewAdapter.ItemListener {
+public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
-    RecyclerView recyclerView;
+
     ArrayList arrayList, arrayList1;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -35,12 +35,12 @@ public class HomeFragment extends Fragment implements RecyclerViewAdapter.ItemLi
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        TextView usernameTextView = binding.username;
-        usernameTextView.setText(LoginActivity.usernameGlobal);
+        TextView usernameTextView = binding.welcomeTextView;
+        usernameTextView.setText("Welcome back " + LoginActivity.usernameGlobal + "!");
 
         SliderView sliderView = binding.imageSlider;
         SliderView doubleSliderView = binding.imageSlider1;
-        recyclerView = binding.recyclerView;
+
         arrayList = new ArrayList();
 
         arrayList.add(new DataModel("Title Event 1", 5000000, "02 August 2023", R.drawable.jalihara_logo, "10:00 PM", "Jakarta, Indonesia", "Deskripsi Event"));
@@ -59,8 +59,7 @@ public class HomeFragment extends Fragment implements RecyclerViewAdapter.ItemLi
         arrayList1.add(new DataModel("Title Event 2", 5000000, "02 August 2023", R.drawable.jalihara_logo, "10:00 PM", "Jakarta, Indonesia", "Deskripsi Event"));
         arrayList1.add(new DataModel("Title Event 1", 5000000, "02 August 2023", R.drawable.jalihara_logo, "10:00 PM", "Jakarta, Indonesia", "Deskripsi Event"));
 
-        RecyclerViewAdapter adapterGrid = new RecyclerViewAdapter(getActivity(), arrayList, this, root);
-        recyclerView.setAdapter(adapterGrid);
+
 
         SliderAdapter adapter = new SliderAdapter(root, arrayList);
         DoubleSliderAdapter doubleadapter = new DoubleSliderAdapter(root, arrayList, arrayList1);
@@ -76,18 +75,11 @@ public class HomeFragment extends Fragment implements RecyclerViewAdapter.ItemLi
         doubleSliderView.setAutoCycle(true);
         doubleSliderView.startAutoCycle();
 
-        GridLayoutManager manager = new GridLayoutManager(getActivity(), 2, GridLayoutManager.VERTICAL, false);
-        recyclerView.setLayoutManager(manager);
+
 
         return root;
     }
-    @Override
-    public void onItemClick(DataModel item) {
-        Toast.makeText(requireContext(), item.title + " is clicked", Toast.LENGTH_SHORT).show();
-        Bundle bundle = new Bundle();
-        bundle.putSerializable("selected", item);
-        Navigation.findNavController(getView()).navigate(R.id.action_nav_home_to_ticket_form, bundle);
-    }
+
 
     public void onSplitTypeChanged(RadioGroup radioGroup, int id) {
         // Is the button now checked?
