@@ -87,7 +87,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("selected", item);
-                Navigation.findNavController(rootView).navigate(R.id.action_nav_home_to_ticket_form, bundle);
+                Navigation.findNavController(rootView).navigate(R.id.action_nav_slideshow_to_ticket_form, bundle);
             }
         });
     }
