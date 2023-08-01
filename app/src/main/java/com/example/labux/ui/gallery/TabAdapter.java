@@ -16,9 +16,9 @@ public class TabAdapter extends FragmentStateAdapter {
     public Fragment createFragment(int position) {
         switch (position) {
             case 0:
-                return new TabContactUsFragment();
-            default:
                 return new TabAboutUsFragment();
+            default:
+                return new TabContactUsFragment();
         }
     }
 

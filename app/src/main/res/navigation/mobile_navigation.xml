@@ -27,15 +27,18 @@
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.example.labux.ui.gallery.GalleryFragment"
+        android:name="com.example.labux.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_slideshow"
+         />
+
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="com.example.labux.ui.slideshow.SlideshowFragment"
+        android:name="com.example.labux.ui.gallery.GalleryFragment"
         android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow"
+        tools:layout="@layout/fragment_gallery"
+
         >
         <action
             android:id="@+id/action_nav_slideshow_to_ticket_form"

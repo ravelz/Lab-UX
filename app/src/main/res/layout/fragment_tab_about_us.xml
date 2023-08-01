@@ -10,9 +10,9 @@
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingHorizontal="20dp">
+    android:layout_height="wrap_content">
     <TextView
+
         android:id="@+id/quote"
         android:textAlignment="center"
         android:layout_width="wrap_content"
@@ -20,7 +20,11 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:paddingHorizontal="60dp"
+        android:layout_marginVertical="20dp"
         android:text="ART is the JOURNEY of a FREE SOUL"
+        android:textSize="18sp"
+        android:textColor="@color/blue"
         />
     <TextView
         android:id="@+id/quoter"
@@ -36,10 +40,11 @@
     <ImageView
         android:id="@+id/image_view_about_us"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="150dp"
         app:layout_constraintTop_toBottomOf="@+id/quoter"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/banner_about_us"
         />
     <TextView
         android:id="@+id/our_journey"
@@ -47,6 +52,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Our Journey"
+        android:textColor="@color/black"
+        android:textSize="18sp"
         app:layout_constraintTop_toBottomOf="@id/image_view_about_us"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -58,6 +65,7 @@
         app:layout_constraintTop_toBottomOf="@id/our_journey"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:paddingHorizontal="60dp"
 
         >
         <LinearLayout
@@ -65,15 +73,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:paddingVertical="10dp"
             >
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@drawable/jalihara_logo"
+                android:src="@drawable/oj_1"
+                android:layout_marginEnd="15dp"
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:justificationMode="inter_word"
                 android:text="JalIhara's goal is to bring the best arts and cultural experiences to your fingertips. We believe that art is the best way to maintain cultural values and identity, which is why we created our app."
                 />
         </LinearLayout>
@@ -84,16 +95,19 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_below="@id/first_line"
+            android:paddingVertical="10dp"
             >
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@drawable/jalihara_logo"
+                android:src="@drawable/oj_2"
+                android:layout_marginEnd="15dp"
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="JalIhara's goal is to bring the best arts and cultural experiences to your fingertips. We believe that art is the best way to maintain cultural values and identity, which is why we created our app."
+                android:justificationMode="inter_word"
+                android:text="We establish relationships with the best arts event organizers and cultural venues across the city, so that you can find tickets for any event you desire."
                 />
         </LinearLayout>
         <LinearLayout
@@ -102,16 +116,19 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_below="@id/second_line"
+            android:paddingVertical="10dp"
             >
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@drawable/jalihara_logo"
+                android:src="@drawable/oj_3"
+                android:layout_marginEnd="15dp"
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="JalIhara's goal is to bring the best arts and cultural experiences to your fingertips. We believe that art is the best way to maintain cultural values and identity, which is why we created our app."
+                android:justificationMode="inter_word"
+                android:text="We believe that immersive art experiences can open our eyes and hearts to a deeper understanding of the beauty and diversity of the world."
                 />
         </LinearLayout>
         <LinearLayout
@@ -120,16 +137,19 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_below="@id/third_line"
+            android:paddingVertical="10dp"
             >
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@drawable/jalihara_logo"
+                android:src="@drawable/oj_4"
+                android:layout_marginEnd="15dp"
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="JalIhara's goal is to bring the best arts and cultural experiences to your fingertips. We believe that art is the best way to maintain cultural values and identity, which is why we created our app."
+                android:justificationMode="inter_word"
+                android:text="With the JalIhara app, we aim to take you on an unforgettable cultural journey, where you can discover and appreciate enchanting art and culture."
                 />
         </LinearLayout>
     </RelativeLayout>
@@ -142,6 +162,9 @@
         app:layout_constraintTop_toBottomOf="@+id/jourey_description"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/blue"
+        android:paddingHorizontal="40dp"
+        android:layout_marginVertical="20dp"
         android:text="“With Jal Ihara, I’ve got masterpiece art performance ticket, such a wonderful experience. Thanks JalIhara”"
         />
     <TextView
@@ -152,74 +175,32 @@
         app:layout_constraintTop_toBottomOf="@+id/quote1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/black"
         android:text="- Aurora"
         />
 
-    <LinearLayout
-        android:id="@+id/partner"
+    <TextView
+        android:id="@+id/our_partner"
+        android:textAlignment="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Our Partner"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:layout_marginTop="20dp"
         app:layout_constraintTop_toBottomOf="@id/quoter1"
-        >
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/jalihara_logo"
-            android:gravity="start"
-            android:layout_weight="1"
-            />
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/jalihara_logo"
-            android:gravity="center"
-            android:layout_weight="1"
-            />
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/jalihara_logo"
-            android:gravity="center"
-            android:layout_weight="1"
-            />
-
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/partner1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/partner"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        >
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/jalihara_logo"
-            android:gravity="start"
-            android:layout_weight="1"
-            />
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/jalihara_logo"
-            android:gravity="center"
-            android:layout_weight="1"
-            />
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/jalihara_logo"
-            android:gravity="center"
-            android:layout_weight="1"
-            />
-    </LinearLayout>
+        />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:paddingHorizontal="40dp"
+        android:src="@drawable/partner"
+        app:layout_constraintTop_toBottomOf="@id/our_partner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 
 

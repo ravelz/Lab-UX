@@ -45,12 +45,11 @@ public class SlideshowFragment extends Fragment implements RecyclerViewAdapter.I
         arrayList = new ArrayList();
         SliderView sliderView = binding.imageSlider;
 
-        arrayList.add(new DataModel("Title Event 1", 5000000, "02 August 2023", R.drawable.jalihara_logo, "10:00 PM", "Jakarta, Indonesia", "Deskripsi Event"));
-        arrayList.add(new DataModel("Title Event 2", 5000000, "02 August 2023", R.drawable.jalihara_logo, "10:00 PM", "Jakarta, Indonesia", "Deskripsi Event"));
-        arrayList.add(new DataModel("Title Event 3", 5000000, "02 August 2023", R.drawable.jalihara_logo, "10:00 PM", "Jakarta, Indonesia", "Deskripsi Event"));
-        arrayList.add(new DataModel("Title Event 4", 5000000, "02 August 2023", R.drawable.jalihara_logo, "10:00 PM", "Jakarta, Indonesia", "Deskripsi Event"));
-        arrayList.add(new DataModel("Title Event 5", 5000000, "02 August 2023", R.drawable.jalihara_logo, "10:00 PM", "Jakarta, Indonesia", "Deskripsi Event"));
-        arrayList.add(new DataModel("Title Event 6", 5000000, "02 August 2023", R.drawable.jalihara_logo, "10:00 PM", "Jakarta, Indonesia", "Deskripsi Event"));
+        arrayList.add(new DataModel("Title Event 1", 5000000, "02 August 2023", R.drawable.slider_ticket1, R.drawable.ticket1, "10:00 PM", "Jakarta, Indonesia", "Deskripsi Event"));
+        arrayList.add(new DataModel("Title Event 2", 5000000, "02 August 2023", R.drawable.slider_ticket2, R.drawable.ticket2, "10:00 PM", "Jakarta, Indonesia", "Deskripsi Event"));
+        arrayList.add(new DataModel("Title Event 3", 5000000, "02 August 2023", R.drawable.slider_ticket3, R.drawable.ticket3,"10:00 PM", "Jakarta, Indonesia", "Deskripsi Event"));
+        arrayList.add(new DataModel("Title Event 4", 5000000, "02 August 2023", R.drawable.slider_ticket3, R.drawable.ticket3,"10:00 PM", "Jakarta, Indonesia", "Deskripsi Event"));
+        arrayList.add(new DataModel("Title Event 5", 5000000, "02 August 2023", R.drawable.slider_ticket5, R.drawable.ticket5,"10:00 PM", "Jakarta, Indonesia", "Deskripsi Event"));
 
 
         TicketSliderAdapter adapter = new TicketSliderAdapter(root, arrayList);

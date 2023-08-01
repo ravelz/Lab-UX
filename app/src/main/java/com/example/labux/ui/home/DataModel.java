@@ -8,6 +8,7 @@ public class DataModel implements Serializable {
     public Integer price;
     public String date;
     public int drawable;
+    public int drawableSlider;
     public String color;
 
     public String getTitle() {
@@ -70,11 +71,19 @@ public class DataModel implements Serializable {
         return color;
     }
 
+    public int getDrawableSlider() {
+        return drawableSlider;
+    }
+
+    public void setDrawableSlider(int drawableSlider) {
+        this.drawableSlider = drawableSlider;
+    }
+
     public void setColor(String color) {
         this.color = color;
     }
 
-    public DataModel(String t, Integer p, String date, int d, String time, String location, String description)
+    public DataModel(String t, Integer p, String date, int d, int drawableSlider, String time, String location, String description)
     {
         title=t;
         price = p;
@@ -83,6 +92,7 @@ public class DataModel implements Serializable {
         this.time = time;
         this.location = location;
         this.description = description;
+        this.drawableSlider = drawableSlider;
     }
 
 }

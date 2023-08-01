@@ -21,10 +21,11 @@ public class DoubleSliderAdapter extends SliderViewAdapter<DoubleSliderAdapter.D
     private final List<DataModel> mSliderItems1;
     private View rootView;
 
-    public DoubleSliderAdapter(View rootView, ArrayList<DataModel> sliderDataArrayList, List<DataModel> mSliderItems1) {
+    public DoubleSliderAdapter(View rootView, ArrayList<DataModel> sliderDataArrayList, ArrayList<DataModel> mSliderItems1) {
         this.mSliderItems = sliderDataArrayList;
-        this.rootView = rootView;
         this.mSliderItems1 = mSliderItems1;
+        this.rootView = rootView;
+
     }
 
     @Override
@@ -36,7 +37,7 @@ public class DoubleSliderAdapter extends SliderViewAdapter<DoubleSliderAdapter.D
     @Override
     public void onBindViewHolder(DoubleSliderAdapter.DoubleSliderAdapterViewHolder viewHolder, final int position) {
         DataModel item = mSliderItems.get(position);
-        viewHolder.imageViewBackground.setImageResource(item.getDrawable());
+        viewHolder.imageViewBackground.setImageResource(item.getDrawableSlider());
         viewHolder.textViewTitle.setText(item.getTitle());
         viewHolder.textViewPrice.setText(String.valueOf(item.getPrice()));
         viewHolder.textViewDate.setText(item.getDate());
@@ -51,7 +52,7 @@ public class DoubleSliderAdapter extends SliderViewAdapter<DoubleSliderAdapter.D
             }
         });
         DataModel item1 = mSliderItems1.get(position);
-        viewHolder.imageViewBackground1.setImageResource(item.getDrawable());
+        viewHolder.imageViewBackground1.setImageResource(item1.getDrawableSlider());
         viewHolder.textViewTitle1.setText(item1.getTitle());
         viewHolder.textViewPrice1.setText(String.valueOf(item1.getPrice()));
         viewHolder.textViewDate1.setText(item1.getDate());
@@ -59,7 +60,7 @@ public class DoubleSliderAdapter extends SliderViewAdapter<DoubleSliderAdapter.D
             @Override
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
-                bundle.putSerializable("selected", item);
+                bundle.putSerializable("selected", item1);
                 Navigation.findNavController(rootView).navigate(R.id.action_nav_home_to_ticket_form, bundle);
             }
         });

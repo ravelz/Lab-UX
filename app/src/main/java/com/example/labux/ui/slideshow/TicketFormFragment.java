@@ -53,7 +53,7 @@ public class TicketFormFragment extends Fragment {
         binding.eventDate.setText(ticket.date);
         binding.description.setText(ticket.description);
 
-        imageView.setImageResource(ticket.getDrawable());
+        imageView.setImageResource(ticket.getDrawableSlider());
 
         RadioGroup radioGroup = binding.radioGroup;
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()

@@ -11,7 +11,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingHorizontal="20dp"
+    android:paddingHorizontal="40dp"
+    android:paddingVertical="40dp"
     >
 
     <TextView
@@ -23,20 +24,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:text="Our Office"
+        android:textSize="18sp"
+        android:textColor="@color/black"
         />
     <ImageView
         android:id="@+id/image_view_our_office"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/jalihara_logo"
+        android:layout_height="200dp"
+        android:src="@drawable/office"
         app:layout_constraintTop_toBottomOf="@id/our_office"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+
         />
     <TextView
         android:id="@+id/art_center_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="18dp"
         android:text="Jallhara Art Center"
         app:layout_constraintTop_toBottomOf="@id/image_view_our_office"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,18 +52,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginTop="10dp"
         app:layout_constraintTop_toBottomOf="@+id/art_center_text_view"
         >
         <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/jalihara_logo"
+            android:src="@drawable/icon_location"
             android:gravity="start"
+            android:layout_marginEnd="20dp"
             />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Jl. Pakuan No.3, Sumur Batu, Kec. Babakan Madang, Kabupaten Bogor, Jawa Barat 16810"
+            android:justificationMode="inter_word"
             android:gravity="start"
             />
     </LinearLayout>
@@ -70,14 +79,16 @@
         app:layout_constraintTop_toBottomOf="@+id/layout_art_center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="40dp"
+        android:textSize="18sp"
+        android:textColor="@color/black"
         android:text="Our Website"
         />
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view_our_website"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/border"
-        android:padding="5dp"
+        app:cardCornerRadius="6dp"
         app:layout_constraintTop_toBottomOf="@+id/our_website"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -85,12 +96,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:background="@drawable/border"
+            android:padding="10dp"
             >
             <ImageView
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:src="@drawable/jalihara_logo"
+                android:src="@drawable/website"
                 android:layout_gravity="start"
+                android:layout_marginEnd="5dp"
+
                 />
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -99,6 +114,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
                     android:text="Visit our website for up-to-date information on art events near you. Discover event schedules, locations, themes, and materials used by top artists."
                     />
                 <Button
@@ -114,6 +130,9 @@
         android:textAlignment="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:textColor="@color/black"
+        android:textSize="18dp"
         app:layout_constraintTop_toBottomOf="@+id/card_view_our_website"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -131,24 +150,27 @@
         <ImageView
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:src="@drawable/jalihara_logo"
+            android:src="@drawable/contact_illustration"
             android:layout_gravity="start"
             />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
             android:orientation="vertical">
             <LinearLayout
                 android:id="@+id/first_line"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:layout_marginVertical="10dp"
                 >
                 <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/jalihara_logo"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/icon_mail"
                     />
                 <TextView
                     android:layout_width="wrap_content"
@@ -161,12 +183,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:layout_marginVertical="10dp"
 
                 >
                 <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/jalihara_logo"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/icon_ig"
                     />
                 <TextView
                     android:layout_width="wrap_content"
@@ -179,11 +202,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:layout_marginVertical="10dp"
                 >
                 <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/jalihara_logo"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/icon_wa"
                     />
                 <TextView
                     android:layout_width="wrap_content"
