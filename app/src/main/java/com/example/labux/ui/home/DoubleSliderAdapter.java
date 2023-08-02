@@ -13,7 +13,9 @@ import androidx.navigation.Navigation;
 import com.example.labux.R;
 import com.smarteist.autoimageslider.SliderViewAdapter;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Currency;
 import java.util.List;
 
 public class DoubleSliderAdapter extends SliderViewAdapter<DoubleSliderAdapter.DoubleSliderAdapterViewHolder> {
@@ -39,7 +41,12 @@ public class DoubleSliderAdapter extends SliderViewAdapter<DoubleSliderAdapter.D
         DataModel item = mSliderItems.get(position);
         viewHolder.imageViewBackground.setImageResource(item.getDrawableSlider());
         viewHolder.textViewTitle.setText(item.getTitle());
-        viewHolder.textViewPrice.setText(String.valueOf(item.getPrice()));
+        NumberFormat format = NumberFormat.getCurrencyInstance();
+        format.setMaximumFractionDigits(0);
+        format.setCurrency(Currency.getInstance("IDR"));
+
+        String formatedPrice = format.format(item.getPrice());
+        viewHolder.textViewPrice.setText(formatedPrice);
         viewHolder.textViewDate.setText(item.getDate());
         viewHolder.buttonBuyTicket.setText("Buy Ticket");
 
@@ -54,7 +61,9 @@ public class DoubleSliderAdapter extends SliderViewAdapter<DoubleSliderAdapter.D
         DataModel item1 = mSliderItems1.get(position);
         viewHolder.imageViewBackground1.setImageResource(item1.getDrawableSlider());
         viewHolder.textViewTitle1.setText(item1.getTitle());
-        viewHolder.textViewPrice1.setText(String.valueOf(item1.getPrice()));
+
+        String formatedPrice1 = format.format(item1.getPrice());
+        viewHolder.textViewPrice1.setText(formatedPrice1);
         viewHolder.textViewDate1.setText(item1.getDate());
         viewHolder.imageViewBackground1.setOnClickListener(new View.OnClickListener() {
             @Override

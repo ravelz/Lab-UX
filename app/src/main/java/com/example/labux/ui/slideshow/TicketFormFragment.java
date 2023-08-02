@@ -49,9 +49,6 @@ public class TicketFormFragment extends Fragment {
         totalCost = Double.valueOf(ticket.getPrice());
 
         binding.item1.setText(ticket.title);
-        binding.item2.setText(ticket.location);
-        binding.eventDate.setText(ticket.date);
-        binding.description.setText(ticket.description);
 
         imageView.setImageResource(ticket.getDrawableSlider());
 

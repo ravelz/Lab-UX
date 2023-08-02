@@ -15,7 +15,9 @@ import com.example.labux.ui.home.DataModel;
 import com.example.labux.ui.home.DoubleSliderAdapter;
 import com.smarteist.autoimageslider.SliderViewAdapter;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Currency;
 import java.util.List;
 
 public class TicketSliderAdapter extends SliderViewAdapter<TicketSliderAdapter.TicketSliderAdapterViewHolder> {
@@ -38,14 +40,19 @@ public class TicketSliderAdapter extends SliderViewAdapter<TicketSliderAdapter.T
         DataModel item = mSliderItems.get(position);
         viewHolder.imageViewBackground.setImageResource(item.getDrawable());
         viewHolder.titleTextView.setText(item.getTitle());
-        viewHolder.priceTextView.setText(String.valueOf(item.getPrice()));
+        NumberFormat format = NumberFormat.getCurrencyInstance();
+        format.setMaximumFractionDigits(0);
+        format.setCurrency(Currency.getInstance("IDR"));
+
+        String formatedPrice = format.format(item.getPrice());
+        viewHolder.priceTextView.setText(formatedPrice);
         viewHolder.dateTextView.setText(item.getDate());
         viewHolder.imageViewBackground.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("selected", item);
-                Navigation.findNavController(rootView).navigate(R.id.action_nav_slideshow_to_ticket_form, bundle);
+                Navigation.findNavController(rootView).navigate(R.id.action_nav_gallery_to_ticket_form, bundle);
             }
         });
         viewHolder.buttonBuy.setOnClickListener(new View.OnClickListener() {
@@ -53,7 +60,7 @@ public class TicketSliderAdapter extends SliderViewAdapter<TicketSliderAdapter.T
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("selected", item);
-                Navigation.findNavController(rootView).navigate(R.id.action_nav_slideshow_to_ticket_form, bundle);
+                Navigation.findNavController(rootView).navigate(R.id.action_nav_gallery_to_ticket_form, bundle);
             }
         });
     }

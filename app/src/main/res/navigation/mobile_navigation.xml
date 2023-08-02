@@ -23,14 +23,21 @@
         android:name="com.example.labux.ui.slideshow.TicketFormFragment"
         android:label="Ticket Form"
         tools:layout="@layout/fragment_ticket_form">
+        />
     </fragment>
 
     <fragment
         android:id="@+id/nav_gallery"
         android:name="com.example.labux.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_slideshow"
-         />
+        tools:layout="@layout/fragment_slideshow">
+            <action
+                android:id="@+id/action_nav_gallery_to_ticket_form"
+                app:destination="@id/ticket_form"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:launchSingleTop="false" />
+            />
+    </fragment>
 
 
     <fragment
@@ -38,13 +45,7 @@
         android:name="com.example.labux.ui.gallery.GalleryFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_gallery"
-
         >
-        <action
-            android:id="@+id/action_nav_slideshow_to_ticket_form"
-            app:destination="@id/ticket_form"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:launchSingleTop="false" />
-        />
+
     </fragment>
 </navigation>

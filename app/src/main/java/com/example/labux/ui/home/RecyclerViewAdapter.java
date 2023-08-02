@@ -17,7 +17,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.labux.R;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Currency;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
 
@@ -56,9 +58,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         public void setData(DataModel item) {
             this.item = item;
             titleTextView.setText(item.title);
-            priceTextView.setText(String.valueOf(item.price));
+            NumberFormat format = NumberFormat.getCurrencyInstance();
+            format.setMaximumFractionDigits(0);
+            format.setCurrency(Currency.getInstance("IDR"));
+
+            String formatedPrice = format.format(item.getPrice());
+            priceTextView.setText(String.valueOf(formatedPrice));
             dateTextView.setText(item.date);
-            imageView.setImageResource(item.drawable);;
+            imageView.setImageResource(item.drawableSlider);;
         }
 
         @Override
@@ -87,7 +94,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("selected", item);
-                Navigation.findNavController(rootView).navigate(R.id.action_nav_slideshow_to_ticket_form, bundle);
+                Navigation.findNavController(rootView).navigate(R.id.action_nav_gallery_to_ticket_form, bundle);
             }
         });
     }

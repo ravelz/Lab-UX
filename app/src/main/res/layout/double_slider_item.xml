@@ -14,33 +14,26 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         card_view:cardCornerRadius="0dp"
-        card_view:cardElevation="10dp"
+        card_view:cardElevation="0dp"
         card_view:cardMaxElevation="10dp"
         card_view:contentPadding="10dp"
         >
-
-
         <RelativeLayout
             android:id="@+id/relativeLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="@drawable/border"
-
             android:padding="10dp"
             >
 
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
-                android:layout_height="150dp" />
-
-
+                android:layout_height="200dp" />
             <TextView
                 android:id="@+id/titleTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
                 android:textColor="@android:color/black"
                 android:layout_below="@+id/imageView" />
 
@@ -48,14 +41,11 @@
                 android:id="@+id/priceTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:textColor="@android:color/black"
                 android:layout_below="@+id/titleTextView" />
             <TextView
                 android:id="@+id/dateTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
                 android:textColor="@android:color/black"
                 android:layout_below="@+id/priceTextView" />
 
@@ -75,9 +65,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-
         card_view:cardCornerRadius="0dp"
-        card_view:cardElevation="10dp"
+        card_view:cardElevation="0dp"
         card_view:cardMaxElevation="10dp"
         card_view:contentPadding="10dp"
         >
@@ -88,21 +77,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="@drawable/border"
             android:padding="10dp"
             >
 
             <ImageView
                 android:id="@+id/imageView1"
                 android:layout_width="match_parent"
-                android:layout_height="150dp" />
+                android:layout_height="200dp" />
 
 
             <TextView
                 android:id="@+id/titleTextView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
                 android:textColor="@android:color/black"
                 android:layout_below="@+id/imageView1" />
 
@@ -110,14 +97,11 @@
                 android:id="@+id/priceTextView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:textColor="@android:color/black"
                 android:layout_below="@+id/titleTextView1" />
             <TextView
                 android:id="@+id/dateTextView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
                 android:textColor="@android:color/black"
                 android:layout_below="@+id/priceTextView1" />
 
