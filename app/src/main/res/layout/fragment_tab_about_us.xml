@@ -155,11 +155,34 @@
     </RelativeLayout>
 
     <TextView
+        android:id="@+id/more_than"
+        android:textAlignment="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="More than 1000 event!"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/jourey_description"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+    <ImageView
+        android:id="@+id/image_more_than"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:src="@drawable/about_us"
+        app:layout_constraintTop_toBottomOf="@id/more_than"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+
+    <TextView
         android:id="@+id/quote1"
         android:textAlignment="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/jourey_description"
+        app:layout_constraintTop_toBottomOf="@+id/image_more_than"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:textColor="@color/blue"
